@@ -28,11 +28,11 @@ export default function Question({ init }: { init: any }) {
             <div className="flex">
                 <div className="flex flex-1 gap-4">
                     {Tree.root != node && <>
-                        <button onClick={back} className="btn btn-circle btn-outline btn-sm"><img src="/public/Arrow_alt_left.svg" alt="Back button" className="pl-0.5"/></button>
-                        <button onClick={root} className="btn btn-circle btn-outline btn-sm"><img src="/public/Refresh.svg" alt="Reset button" className="pb-1" /></button>
+                        <button onClick={back} className="btn btn-circle btn-outline btn-sm"><img src="/Arrow_alt_left.svg" alt="Back button" className="pl-0.5"/></button>
+                        <button onClick={root} className="btn btn-circle btn-outline btn-sm"><img src="/Refresh.svg" alt="Reset button" className="pb-1" /></button>
                     </>}
                 </div>
-                <button className="btn btn-circle btn-outline btn-sm"><img src="/public/Info.svg" alt="Info button" className="pb-0.5" /></button>
+                <button className="btn btn-circle btn-outline btn-sm"><img src="/Info.svg" alt="Info button" className="pb-0.5" /></button>
             </div>
             <h1 className="text-2xl mb-4 text-center">{node.name}</h1>
             <div className="flex flex-col gap-4 items-center">
