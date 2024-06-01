@@ -1,0 +1,14 @@
+{
+  "name": "Q1",
+  "children": [
+    {
+      "answer": "Yes",
+      "name": "Q2.1",
+      "children": [
+        { "answer": "Yes", "name": "Q3.1.1", "children": [] },
+        { "answer": "No", "name": "Q3.1.2", "children": [] }
+      ]
+    },
+    { "answer": "No", "name": "Q2.2", "children": [] }
+  ]
+}

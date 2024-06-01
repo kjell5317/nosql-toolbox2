@@ -1,16 +1,28 @@
 ---
-
+import Question from "../components/Question";
+import tree from "../tree.json";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <nav class="flex m-5 justify-between">
+      <h1 class="text-3xl flex items-center">NoSQL Toolbox 2.0</h1>
+      <div>
+        <a href="/informationen/" class="btn btn-ghost">Informationen</a>
+        <a href="/entwickler/" class="btn btn-ghost">Entwickler</a>
+      </div>
+    </nav>
+    <main class="flex justify-center content-center my-10">
+      <div class="w-2/3 border rounded-xl pt-4 pb-6 px-5">
+        <Question init={tree} client:load />
+      </div>
+    </main>
+  </body>
 </html>
