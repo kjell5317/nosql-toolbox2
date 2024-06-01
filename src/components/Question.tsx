@@ -28,11 +28,31 @@ export default function Question({ init }: { init: any }) {
             <div className="flex">
                 <div className="flex flex-1 gap-4">
                     {Tree.root != node && <>
-                        <button onClick={back} className="btn btn-circle btn-outline btn-sm"><img src="icons/Arrow_alt_left.svg" alt="Back button" className="pl-0.5"/></button>
-                        <button onClick={root} className="btn btn-circle btn-outline btn-sm"><img src="icons/Refresh.svg" alt="Reset button" className="pb-1" /></button>
+                        <button onClick={back} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Zurück">
+                            <img src="icons/Arrow_alt_left.svg" alt="Back button" className="pl-0.5" />
+                        </button>
+                        <button onClick={root} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Neustarten">
+                            <img src="icons/Refresh.svg" alt="Reset button" className="pb-1" />
+                        </button>
                     </>}
                 </div>
-                <button className="btn btn-circle btn-outline btn-sm"><img src="icons/Info.svg" alt="Info button" className="pb-0.5" /></button>
+                {node.info && <>
+                    <button onClick={() => document.getElementById("more")!.showModal()} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Mehr Info">
+                        <img src="icons/Info.svg" alt="Info button" className="pb-0.5" />
+                    </button>
+                    <dialog id="more" className="modal modal-bottom md:modal-middle">
+                        <div className="modal-box">
+                            <div className="flex justify-between items-center">
+                                <h3 className="font-bold text-xl">Mehr Informationen</h3>
+                                <button onClick={() => document.getElementById("more")!.close()} className="btn btn-circle btn-outline btn-sm">x</button>
+                            </div>
+                            <p className="py-4">{node.info}</p>
+                        </div>
+                        <form method="dialog" className="modal-backdrop">
+                            <button>x</button>
+                        </form>
+                    </dialog>
+                </>}
             </div>
             <h1 className="text-2xl mb-4 text-center">{node.name}</h1>
             <div className="flex flex-col gap-4 items-center">

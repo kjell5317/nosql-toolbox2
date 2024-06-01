@@ -2,6 +2,7 @@ export class Tree {
     static root: Tree;
     name: string;
     answer: string | null;
+    info: string | null;
     children: Tree[];
 
     constructor(json: any, root: boolean = false) {
@@ -10,6 +11,7 @@ export class Tree {
         }
         this.name = json.name;
         this.answer = json.answer;
+        this.info = json.info;
         this.children = json.children.map((child: any) => new Tree(child));
     }
 
