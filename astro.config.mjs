@@ -6,5 +6,4 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [react(), tailwind()],
   site: "https://kjell5317.github.io",
-  base: "/nosql-toolbox2",
 });
