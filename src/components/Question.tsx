@@ -37,14 +37,14 @@ export default function Question({ init }: { init: any }) {
                     </>}
                 </div>
                 {node.info && <>
-                    <button onClick={() => document.getElementById("more")!.showModal()} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Mehr Info">
+                    <button onClick={() => (document.getElementById("more") as HTMLDialogElement)!.showModal()} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Mehr Info">
                         <img src="icons/Info.svg" alt="Info button" className="pb-0.5" />
                     </button>
                     <dialog id="more" className="modal modal-bottom md:modal-middle">
                         <div className="modal-box">
                             <div className="flex justify-between items-center">
                                 <h3 className="font-bold text-xl">Mehr Informationen</h3>
-                                <button onClick={() => document.getElementById("more")!.close()} className="btn btn-circle btn-outline btn-sm">x</button>
+                                <button onClick={() => (document.getElementById("more") as HTMLDialogElement)!.close()} className="btn btn-circle btn-outline btn-sm">x</button>
                             </div>
                             <p className="py-4">{node.info}</p>
                         </div>
