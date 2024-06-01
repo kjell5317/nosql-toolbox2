@@ -20,15 +20,8 @@ import tree from "../tree.json";
       </div>
     </nav>
     <main class="flex justify-center content-center my-10">
-      <div
-        class="md:w-1/2 w-5/6 border rounded-xl pt-4 pb-6 px-5 flex items-center flex-col"
-      >
-        <h2 class="text-2xl text-center font-bold">Willkommen!</h2>
-        <p class="my-4">
-          Beantworte die folgenden Fragen um das für deinen Anwendungsfall am
-          besten geeignete Datenbankmanagementsystem zu finden
-        </p>
-        <a href="/start"><button class="btn btn-primary">Starten</button></a>
+      <div class="md:w-1/2 w-5/6 border rounded-xl pt-4 pb-6 px-5">
+        <Question init={tree} client:load />
       </div>
     </main>
   </body>
