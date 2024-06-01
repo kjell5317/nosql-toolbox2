@@ -29,16 +29,16 @@ export default function Question({ init }: { init: any }) {
                 <div className="flex flex-1 gap-4">
                     {Tree.root != node && <>
                         <button onClick={back} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Zurück">
-                            <img src="icons/Arrow_alt_left.svg" alt="Back button" className="pl-0.5" />
+                            <img src="/icons/Arrow_alt_left.svg" alt="Back button" className="pl-0.5" />
                         </button>
                         <button onClick={root} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Neustarten">
-                            <img src="icons/Refresh.svg" alt="Reset button" className="pb-1" />
+                            <img src="/icons/Refresh.svg" alt="Reset button" className="pb-1" />
                         </button>
                     </>}
                 </div>
                 {node.info && <>
                     <button onClick={() => (document.getElementById("more") as HTMLDialogElement)!.showModal()} className="btn btn-circle btn-outline btn-sm tooltip" data-tip="Mehr Info">
-                        <img src="icons/Info.svg" alt="Info button" className="pb-0.5" />
+                        <img src="/icons/Info.svg" alt="Info button" className="pb-0.5" />
                     </button>
                     <dialog id="more" className="modal modal-bottom md:modal-middle">
                         <div className="modal-box">
