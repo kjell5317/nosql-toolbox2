@@ -6,13 +6,13 @@ export class Tree {
     children: Tree[];
 
     constructor(json: any, root: boolean = false) {
-        if (root) {
-            Tree.root = this;
-        }
         this.name = json.name;
         this.answer = json.answer;
         this.info = json.info;
-        this.children = json.children.map((child: any) => new Tree(child));
+        this.children = json.children?.map((child: any) => new Tree(child));
+        if (root) {
+            Tree.root = this;
+        }
     }
 
     next(n: number): Tree | null {
@@ -38,7 +38,7 @@ export class Tree {
 
     back(): Tree | null {
         if (this == Tree.root) {
-            return null; // Root node has no parent
+            return null;
         }
         return Tree.findParent(Tree.root, this);
     }

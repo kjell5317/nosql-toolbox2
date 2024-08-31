@@ -1,15 +1,31 @@
 {
-  "name": "Q1",
-  "info": "This is the first question",
+  "name": "Which type of access is more important in your case?",
   "children": [
     {
-      "answer": "Yes",
-      "name": "Q2.1",
+      "answer": "Fast Lookups",
+      "name": "How big is your database going to be?",
       "children": [
-        { "answer": "Yes", "name": "Q3.1.1", "children": [] },
-        { "answer": "No", "name": "Q3.1.2", "children": [] }
+        { "answer": "Size of RAM", "name": "Redis", "children": [] },
+        {
+          "answer": "Really big",
+          "name": "Is it more important to have all data always available even if this can cause small inaccuracies or to have all data always correct and constistant even if it causes delays",
+          "children": [
+            {
+              "answer": "Always available",
+              "name": "Cassandra",
+              "children": [
+                {
+                  "answer": "https://cassandra.apache.org/_/index.html",
+                  "children": [],
+                  "name": ""
+                }
+              ]
+            },
+            { "answer": "Always consistant", "name": "HBase", "children": [] }
+          ]
+        }
       ]
     },
-    { "answer": "No", "name": "Q2.2", "children": [] }
+    { "answer": "Complex Queries", "name": "Q2.2", "children": [] }
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ba.kjellhanken.de/schema.json",
+  "title": "Decision Tree",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    }
+  },
+  "required": ["name", "children"],
+  "$defs": {
+    "node": {
+      "type": "object",
+      "properties": {
+        "answer": { "type": "string" },
+        "name": { "type": "string" },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        }
+      },
+      "required": ["name", "children"]
+    }
+  }
+}
