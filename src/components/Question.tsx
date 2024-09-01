@@ -26,8 +26,8 @@ export default function Question({ init }: { init: any }) {
 
   return (
     <>
-      <div className="flex">
-        <div className="flex flex-1 gap-4">
+      <div className="flex justify-between">
+        <div className="flex flex-1 md:gap-3 gap-2 justify-start">
           {Tree.root != node && (
             <>
               <BackButton back={back} />
@@ -35,7 +35,12 @@ export default function Question({ init }: { init: any }) {
             </>
           )}
         </div>
-        {node.info && node.children.length > 1 && <Modal info={node.info} />}
+        <div className="flex flex-1 justify-center font-medium text-lg items-center">
+          {node.depth() + " / " + (node.maxDepth() - 1)}
+        </div>
+        <div className="flex-1 flex justify-end">
+          {node.info && node.children.length > 1 && <Modal info={node.info} />}{" "}
+        </div>
       </div>
       <h1 className="text-2xl font-medium mt-4 mb-5 text-center">
         {node.name}
