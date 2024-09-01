@@ -18,7 +18,7 @@ export default function Modal({
             <h3 className="font-bold text-xl">{headline}</h3>
             <ModalButton open className="btn btn-outline btn-sm" />
           </div>
-          <p className="py-4">{info}</p>
+          <p className="py-4" dangerouslySetInnerHTML={{ __html: info }}></p>
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>Close</button>

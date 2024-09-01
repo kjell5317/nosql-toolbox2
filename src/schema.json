@@ -4,7 +4,10 @@
   "title": "Decision Tree",
   "type": "object",
   "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
     "name": { "type": "string" },
+    "info": { "type": "string" },
     "children": {
       "type": "array",
       "items": {
@@ -12,21 +15,23 @@
       }
     }
   },
-  "required": ["name", "children"],
+  "required": ["name", "children", "title", "description"],
+
   "$defs": {
     "node": {
       "type": "object",
       "properties": {
         "answer": { "type": "string" },
         "name": { "type": "string" },
+        "info": { "type": "string" },
         "children": {
           "type": "array",
           "items": {
-            "$ref": "#"
+            "$ref": "#/defs/node"
           }
         }
       },
-      "required": ["name", "children"]
+      "required": ["answer", "children"]
     }
   }
 }
