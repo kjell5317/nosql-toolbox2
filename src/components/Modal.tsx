@@ -13,7 +13,7 @@ export default function Modal({
     <>
       <ModalButton className={buttonClass} />
       <dialog id="more" className="modal modal-bottom md:modal-middle ">
-        <div className="modal-box h-1/2 md:h-fit">
+        <div className="modal-box min-h-1/2 md:h-fit">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-xl">{headline}</h3>
             <ModalButton open className="btn btn-outline btn-sm" />
