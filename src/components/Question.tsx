@@ -35,7 +35,7 @@ export default function Question({ init }: { init: any }) {
             </>
           )}
         </div>
-        <div className="flex flex-1 justify-center font-medium text-lg items-center">
+        <div className="flex flex-1 justify-center font-medium text-lg items-center invisible sm:visible">
           {node.depth() + " / " + (node.maxDepth() - 1)}
         </div>
         <div className="flex-1 flex justify-end">
