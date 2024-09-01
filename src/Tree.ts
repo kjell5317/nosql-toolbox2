@@ -1,7 +1,7 @@
 export class Tree {
     static root: Tree;
-    name: string;
-    answer: string | null;
+    name: string | null;
+    answer: string;
     info: string | null;
     children: Tree[];
 

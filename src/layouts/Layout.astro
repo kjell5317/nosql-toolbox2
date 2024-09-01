@@ -11,19 +11,20 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <nav class="flex m-5 justify-between md:m-7">
-      <h1 class="text-3xl flex items-center">NoSQL Toolbox 2.0</h1>
+    <nav class="justify-between p-5 navbar md:pt-7">
+      <a class="text-3xl flex items-center btn btn-ghost">NoSQL Toolbox 2.0</a>
       <div class="flex justify-end flex-wrap">
-        <a href="/informationen" class="btn btn-ghost">Informationen</a>
+        <a href="/info" class="btn btn-ghost">About</a>
         <a
           href="https://github.com/kjell5317/nosql-toolbox2"
-          class="btn btn-ghost">Entwickler</a
-        >
+          class="btn btn-ghost"
+          >Dev
+        </a>
       </div>
     </nav>
-    <main class="flex justify-center content-center my-10 md:mt-32">
+    <main class="flex justify-center content-center my-10 md:mt-36">
       <div
-        class="md:w-1/2 w-5/6 border border-slate-400 rounded-xl pt-4 pb-6 px-5"
+        class="md:w-2/3 lg:w-1/2 w-5/6 border border-slate-400 rounded-xl pt-4 pb-6 px-5"
       >
         <slot />
       </div>

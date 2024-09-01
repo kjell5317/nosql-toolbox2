@@ -1,9 +1,12 @@
 {
+  "title": "NoSQL Databases",
   "name": "Which type of access is more important in your case?",
+  "info": "info",
   "children": [
     {
       "answer": "Fast Lookups",
       "name": "How big is your database going to be?",
+      "info": "info",
       "children": [
         { "answer": "Size of RAM", "name": "Redis", "children": [] },
         {
@@ -13,19 +16,30 @@
             {
               "answer": "Always available",
               "name": "Cassandra",
+              "info": "info",
               "children": [
                 {
-                  "answer": "https://cassandra.apache.org/_/index.html",
-                  "children": [],
-                  "name": ""
+                  "answer": "https://cassandra.apache.org/_/index.html"
                 }
               ]
             },
-            { "answer": "Always consistant", "name": "HBase", "children": [] }
+            {
+              "answer": "Always consistant",
+              "name": "HBase",
+              "children": [
+                {
+                  "answer": "https://hbase.apache.org/"
+                }
+              ]
+            }
           ]
         }
       ]
     },
-    { "answer": "Complex Queries", "name": "Q2.2", "children": [] }
+    {
+      "answer": "Complex Queries",
+      "name": "How big is your database going to be?",
+      "children": []
+    }
   ]
 }
