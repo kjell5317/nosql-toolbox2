@@ -42,7 +42,11 @@ export default function Question({ init }: { init: any }) {
           {node.info && node.children.length > 1 && <Modal info={node.info} />}
         </div>
       </div>
-      <h1 className="text-2xl font-medium mt-4 text-center mx-4">
+      <h1
+        className={`font-medium mt-4 text-center mx-4 ${
+          node.children.length === 1 ? "text-primary text-3xl" : "text-2xl"
+        }`}
+      >
         {node.name}
       </h1>
       {node.info && node.children.length === 1 && (
