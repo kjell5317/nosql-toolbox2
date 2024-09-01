@@ -1,13 +1,42 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Document</title>
-  </head>
-  <body> </body>
-</html>
+<Layout>
+  <main class="flex flex-col w-4/5 m-auto mt-8">
+    <h1 class="text-3xl font-medium">Background</h1>
+    <div class="mb-2 mt-1">
+      Welcome to our interactive decision tree platform! This tool was
+      originally developed as part of a bachelor's thesis aimed at helping users
+      find the most suitable database for their specific needs. The decision
+      tree was meticulously designed to guide users through a series of
+      questions, ultimately recommending the best database based on their unique
+      scenario.
+    </div>
+    <h2 class="text-xl font-medium">Origin and Evolution</h2>
+    <div class="mb-4 mt-1">
+      The initial project, born out of academic research, focused solely on
+      databases. However, the true strength of this platform lies in its modular
+      and flexible design. The underlying code is open-source and highly
+      adaptable, allowing it to be forked and repurposed for a wide range of
+      applications. As a result, what began as a tool for database selection may
+      now serve as a decision-making aid for entirely different topics—perhaps
+      you're here to find the right programming language for a project, the best
+      cloud service, or something else entirely!
+    </div>
+    <h1 class="text-3xl font-medium">Impressum</h1>
+    <div class="mb-4 mt-1">
+      Kjell Hanken
+      <br />
+      Arbeitsgruppe Data Science
+      <br />
+      Universität Oldenburg
+      <br />
+      Fakultät II – Department für Informatik
+      <br />
+      Escherweg 2, 26121 Oldenburg, Germany
+    </div>
+    <h1 class="text-3xl font-medium">Sources</h1>
+    <div class="mt-1">-coming soon-</div>
+  </main>
+</Layout>

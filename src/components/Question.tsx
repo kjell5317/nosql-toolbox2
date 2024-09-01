@@ -46,7 +46,7 @@ export default function Question({ init }: { init: any }) {
         {node.name}
       </h1>
       {node.info && node.children.length === 1 && (
-        <p className="text-center mt-1">{node.info}</p>
+        <p className="text-center mt-1 mx-4">{node.info}</p>
       )}
       <div className="flex flex-col gap-4 mt-5 items-center justify-center">
         {node.children.map((child, i) => {

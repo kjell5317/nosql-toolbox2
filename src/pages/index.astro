@@ -1,14 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import tree from "../tree.json";
 ---
 
-<Layout title="NoSQL Toolbox 2.0">
-  <div class="flex items-center flex-col">
-    <h2 class="text-2xl text-center font-bold">Willkommen!</h2>
-    <p class="my-4">
-      Beantworte die folgenden Fragen um das für deinen Anwendungsfall am besten
-      geeignete Datenbankmanagementsystem zu finden
-    </p>
-    <a href="/start"><button class="btn btn-primary">Starten</button></a>
-  </div>
+<Layout>
+  <main class="flex justify-center content-center my-10 md:mt-36">
+    <div
+      class="md:w-2/3 lg:w-1/2 w-5/6 border border-slate-400 rounded-xl pt-4 pb-6 md:px-5 px-3"
+    >
+      <div class="flex items-center flex-col">
+        <h1 class="text-3xl text-center font-medium">{tree.title}</h1>
+        <p class="m-4">
+          {tree.description}
+        </p>
+        <a href="/start" class="w-1/4"
+          ><button class="btn btn-primary w-full">Start</button></a
+        >
+      </div>
+    </div>
+  </main>
 </Layout>

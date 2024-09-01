@@ -1,5 +1,13 @@
 ---
-const { title } = Astro.props;
+import tree from "../tree.json";
+import { validate } from "@hyperjump/json-schema/draft-2020-12";
+import { BASIC } from "@hyperjump/json-schema/experimental";
+
+const o = await validate("./src/schema.json", tree, BASIC);
+console.log("Your tree is " + (o.valid ? "valid" : " NOT valid") + "!");
+if (!o.valid) {
+  console.log("Errors:", o.errors);
+}
 ---
 
 <html lang="en">
@@ -8,29 +16,49 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{(tree.title || "Error") + " | NoSQL Toolbox 2.0"}</title>
   </head>
   <body>
     <nav class="justify-between p-5 navbar md:pt-7">
-      <a class="text-3xl flex items-center btn btn-ghost" href="/"
-        >NoSQL Toolbox 2.0</a
-      >
+      <a class="text-3xl flex items-center btn btn-ghost" href="/">
+        NoSQL Toolbox 2.0
+      </a>
       <div class="flex justify-end flex-wrap">
-        <a href="/info" class="btn btn-ghost">About</a>
+        <a href="/info" class="btn btn-ghost"> About </a>
         <a
           href="https://github.com/kjell5317/nosql-toolbox2"
           class="btn btn-ghost"
-          >Dev
+        >
+          Dev
         </a>
       </div>
     </nav>
-    <main class="flex justify-center content-center my-10 md:mt-36">
-      <div
-        class="md:w-2/3 lg:w-1/2 w-5/6 border border-slate-400 rounded-xl pt-4 pb-6 md:px-5 px-3"
-      >
+    {
+      o.valid ? (
         <slot />
-      </div>
-    </main>
+      ) : (
+        <div class="flex justify-center mt-16 flex-col items-center">
+          <h1 class="text-2xl font-medium text-center">
+            Your Tree is invalid!
+            <br />
+            Please check the console or get more information here:
+          </h1>
+          <div class="mt-3">
+            {o.errors?.map((e) => {
+              let link = e.keyword.replace(
+                "keyword",
+                "understanding-json-schema/keywords"
+              );
+              return (
+                <a href={link} class="link link-primary link-hover">
+                  {link}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )
+    }
     <footer></footer>
   </body>
 </html>

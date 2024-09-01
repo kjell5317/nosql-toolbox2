@@ -1,10 +1,15 @@
 ---
 import Question from "../components/Question";
 import tree from "../tree.json";
-
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="NoSQL Toolbox 2.0">
-  <Question init={tree} client:load />
+<Layout>
+  <main class="flex justify-center content-center my-10 md:mt-36">
+    <div
+      class="md:w-2/3 lg:w-1/2 w-5/6 border border-slate-400 rounded-xl pt-4 pb-6 md:px-5 px-3"
+    >
+      <Question init={tree} client:load />
+    </div>
+  </main>
 </Layout>
