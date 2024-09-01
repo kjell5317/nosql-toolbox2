@@ -70,6 +70,7 @@ export function LinkButton({ href }: { href: string }) {
         <a
           href={href}
           className="w-full h-full flex items-center justify-center"
+          target="_blank"
         >
           Documentation
         </a>

@@ -39,16 +39,16 @@ export default function Question({ init }: { init: any }) {
           {node.depth() + " / " + (node.maxDepth() - 1)}
         </div>
         <div className="flex-1 flex justify-end">
-          {node.info && node.children.length > 1 && <Modal info={node.info} />}{" "}
+          {node.info && node.children.length > 1 && <Modal info={node.info} />}
         </div>
       </div>
-      <h1 className="text-2xl font-medium mt-4 mb-5 text-center">
+      <h1 className="text-2xl font-medium mt-4 text-center mx-4">
         {node.name}
       </h1>
       {node.info && node.children.length === 1 && (
         <p className="text-center mt-1">{node.info}</p>
       )}
-      <div className="flex flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col gap-4 mt-5 items-center justify-center">
         {node.children.map((child, i) => {
           return (
             <div className="w-2/3" key={i}>

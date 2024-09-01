@@ -47,7 +47,7 @@ export class Tree {
 
     maxDepth(): number {
         let maxDepth = 0;
-        for (let child of (this.children || [])) {
+        for (let child of this.children) {
             maxDepth = Math.max(maxDepth, child.maxDepth());
         }
         return Math.max(this.depth(), maxDepth);
