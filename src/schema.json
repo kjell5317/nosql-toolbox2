@@ -7,31 +7,67 @@
     "title": { "type": "string" },
     "description": { "type": "string" },
     "name": { "type": "string" },
-    "info": { "type": "string" },
+    "info": { "type": "string" }
+  },
+  "required": ["name", "title", "description"],
+  "oneOf": [
+    {
+      "properties": {
+        "children": {
+          "$ref": "#/$defs/children"
+        }
+      }
+    },
+    {
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/end"
+        }
+      }
+    }
+  ],
+  "$defs": {
     "children": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/node"
-      }
-    }
-  },
-  "required": ["name", "children", "title", "description"],
-
-  "$defs": {
-    "node": {
-      "type": "object",
-      "properties": {
-        "answer": { "type": "string" },
-        "name": { "type": "string" },
-        "info": { "type": "string" },
-        "children": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/node"
+        "type": "object",
+        "properties": {
+          "answer": { "type": "string" },
+          "name": { "type": "string" },
+          "info": { "type": "string" }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "children": {
+                "$ref": "#/$defs/children"
+              }
+            }
+          },
+          {
+            "properties": {
+              "end": {
+                "$ref": "#/$defs/end"
+              }
+            }
           }
-        }
+        ]
       },
-      "required": ["answer", "children"]
+      "required": ["answer", "children"],
+      "minItems": 2
+    },
+    "end": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "info": { "type": "string" },
+          "link": { "type": "string" }
+        },
+        "required": ["name", "info"]
+      },
+      "minItems": 1
     }
   }
 }

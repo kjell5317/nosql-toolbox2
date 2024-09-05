@@ -1,14 +1,19 @@
 export class Tree {
     static root: Tree;
-    name: string | null;
+    name?: string;
+    info?: string;
     answer: string;
-    info: string | null;
     children: Tree[];
+    end?: { name: string, info: string }[];
 
     constructor(json: any, root: boolean = false) {
         this.name = json.name;
         this.answer = json.answer;
         this.info = json.info;
+        if (json.end) {
+            this.end = json.end;
+            json.children = [];
+        }
         this.children = json.children?.map((child: any) => new Tree(child));
         if (root) {
             Tree.root = this;

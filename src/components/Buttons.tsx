@@ -75,7 +75,6 @@ export function LinkButton({ href }: { href: string }) {
           Documentation
         </a>
       </button>
-      {/* <Modal buttonClass="btn btn-primary w-full" info="" /> */}
     </>
   );
 }

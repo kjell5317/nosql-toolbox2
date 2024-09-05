@@ -1,111 +1,57 @@
 {
-  "title": "NoSQL Databases",
+  "title": "NoSQL Database Decision Tree",
   "description": "Welcome to our decision-making platform, designed to help you find the best NoSQL database for your unique needs. In today's data-driven world, selecting the right database can significantly impact your application's performance, scalability, and overall success. Our site simplifies this crucial decision by guiding you through a tailored decision tree, taking your needs into acoount. Whether you're building a small app or an enterprise-level system, we're here to ensure you make an informed choice quickly and efficiently.",
   "name": "Which type of access is more important in your case?",
-  "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br/><br/> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining.",
+  "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining.",
   "children": [
     {
+      "name": "Key-Value",
+      "info": "text",
       "answer": "Fast Lookups",
-      "name": "How big is your database going to be?",
-      "info": "If your database is roughly the \"Size of RAM\", it means all your data can fit into your computer's memory (RAM), which allows for very fast data access. The RAM of a normal computer is between 8GB and 64GB, but larger servers could even have a little more. This is ideal for small to medium-sized applications, like a personal project or a small business app. On the other hand, if your database is \"Really big\", it means your data far exceeds the size of your computer's memory, requiring special database systems designed to handle large amounts of data stored on disk or across multiple servers, which is common in big companies or services dealing with massive amounts of information.",
-      "children": [
+      "end": [
         {
-          "answer": "Size of RAM",
           "name": "Redis",
-          "info": "Redis is an in-memory, key-value data store known for its speed and flexibility. It supports various data structures like strings, lists, sets, hashes, and more. Redis is often used for caching, real-time analytics, message brokering, and as a high-performance database. It also provides persistence options and can replicate data across multiple servers for high availability.",
-          "children": [{ "answer": "https://redis.io/", "children": [] }]
-        },
-        {
-          "answer": "Really big",
-          "name": "Is it more important to have all data always available even if this can cause small inaccuracies or to have all data always correct and consistent even if it causes delays?",
-          "info": "If you choose \"Always available\", it means you prioritize speed and accessibility, accepting that in rare cases, the data might not be perfectly up-to-date. This is useful in scenarios where immediate access is critical, like showing the most recent updates in social media feeds. On the other hand, if you choose \"Always consistent\", you prioritize accuracy and correctness, ensuring that every piece of data is precise and reliable, even if this means waiting a bit longer. This is essential in situations where accuracy is crucial, like in financial transactions or inventory management.",
-          "children": [
-            {
-              "answer": "Always available",
-              "name": "Cassandra",
-              "info": "Cassandra is a distributed NoSQL database designed for handling large volumes of data across many servers with no single point of failure. It offers high availability, scalability, and fault tolerance. Cassandra uses a column-family data model, making it well-suited for applications that require fast writes and can handle large-scale, real-time data processing. It's commonly used for applications like logging, IoT data, and real-time analytics.",
-              "children": [
-                {
-                  "answer": "https://cassandra.apache.org/",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "answer": "Always consistent",
-              "name": "HBase",
-              "info": "HBase is a distributed, scalable NoSQL database built on top of Hadoop's HDFS. It is designed for storing and managing large amounts of sparse, structured data. HBase uses a column-family storage model, which makes it ideal for real-time read/write access to big data. It's often used for use cases like time-series data, log data, and real-time analytics in big data environments.",
-              "children": [
-                {
-                  "answer": "https://hbase.apache.org/",
-                  "children": []
-                }
-              ]
-            }
-          ]
+          "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining."
         }
       ]
     },
     {
+      "name": "Document",
+      "info": "text",
       "answer": "Complex Queries",
-      "name": "How big is your database going to be?",
-      "info": "If your database is the \"Size of HDD\" (Hard Disk Drive), it means your data is large enough to fill up a significant portion of your computer's storage but still manageable on a single machine. This might be suitable for medium-sized applications, like a small company's customer database. If your database is \"Really big,\" it means your data could exceed the capacity of a single hard drive, requiring advanced storage solutions like distributed databases that spread data across multiple servers, often used by large organizations handling massive datasets.",
       "children": [
         {
-          "answer": "Really big",
-          "name": "Is it more important to have all data always available even if this can cause small inaccuracies or to have all data always correct and consistent even if it causes delays?",
-          "info": "If you choose \"Always available\", it means you prioritize speed and accessibility, accepting that in rare cases, the data might not be perfectly up-to-date. This is useful in scenarios where immediate access is critical, like showing the most recent updates in social media feeds. On the other hand, if you choose \"Always consistent\", you prioritize accuracy and correctness, ensuring that every piece of data is precise and reliable, even if this means waiting a bit longer. This is essential in situations where accuracy is crucial, like in financial transactions or inventory management.",
-          "children": [
+          "name": "MongoDB",
+          "info": "text",
+          "answer": "Yes",
+          "end": [
             {
-              "answer": "Always available",
-              "name": "CouchDB",
-              "info": "CouchDB is a distributed NoSQL database that uses a document-oriented data model. It stores data in JSON-like documents with flexible schemas. CouchDB is designed for ease of use, high availability, and fault tolerance. It's often used for applications that require a flexible data model, offline-first capabilities, and real-time data synchronization. CouchDB is commonly used for mobile apps, web apps, and data syncing applications.",
-              "children": [
-                {
-                  "answer": "https://couchdb.apache.org/",
-                  "children": []
-                }
-              ]
+              "name": "MongoDB",
+              "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining.",
+              "link": "https://kjellhanken.de"
             },
             {
-              "answer": "Always consistent",
-              "name": "Neo4j",
-              "info": "Neo4j is a graph database that uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. With a native graph storage and processing engine, Neo4j is optimized for fast traversal of nodes and relationships. Neo4j is often used for applications that require complex, relationship-heavy data models like social networks, recommendation engines, and fraud detection.",
-              "children": [
-                {
-                  "answer": "https://neo4j.com/",
-                  "children": []
-                }
-              ]
+              "name": "Couchbase",
+              "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining."
+            },
+            {
+              "name": "Couchbase",
+              "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining."
+            },
+            {
+              "name": "Couchbase",
+              "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining."
             }
           ]
         },
         {
-          "answer": "Size of HDD",
-          "name": "How should your queries be optimized?",
-          "info": "If you need \"Low latency ad-hoc queries\", it means you want to quickly retrieve specific data points without much delay, which is useful for real-time applications like gaming leaderboards or chat applications. If you need \"Throughput-optimised Big Data analytics\", you're focused on processing large amounts of data efficiently, even if it takes a bit longer to get the results. This is essential for applications like big data processing, data warehousing, and business intelligence.",
-          "children": [
+          "name": "Couchbase",
+          "info": "text",
+          "answer": "No",
+          "end": [
             {
-              "answer": "Low latency ad-hoc queries",
-              "name": "MongoDB",
-              "info": "MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers high performance, high availability, and automatic scaling. MongoDB is often used for operational applications that require real-time analytics and reporting. It's commonly used for use cases like mobile apps, content management systems, and real-time analytics.",
-              "children": [
-                {
-                  "answer": "https://www.mongodb.com/",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "answer": "Throughput-optimised Big Data analytics",
-              "name": "Hadoop",
-              "info": "Hadoop is an open-source, distributed computing platform that enables the storage and processing of large data sets. It is designed to scale up from a single server to thousands of machines, each offering local computation and storage. Hadoop is often used for big data processing and analytics, including data storage, data processing, data access, data governance, and data security.",
-              "children": [
-                {
-                  "answer": "https://hadoop.apache.org/",
-                  "children": []
-                }
-              ]
+              "name": "Couchbase",
+              "info": "Is your primary need from a database to quickly find specific pieces of data (\"Fast Lookups\") or to perform detailed and intricate searches across your data (\"Complex Queries\")? <br><br> If \"Fast Lookups\" are more important, you're focused on getting specific data quickly, like retrieving a user profile by ID. This is crucial for applications needing rapid responses, like online shopping carts. If \"Complex Queries\" are more important, you need to run detailed searches and analyze large sets of data, such as generating reports or finding patterns, which is essential for tasks like business analytics or data mining."
             }
           ]
         }

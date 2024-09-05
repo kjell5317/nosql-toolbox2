@@ -3,7 +3,11 @@ import tree from "../tree.json";
 import { validate } from "@hyperjump/json-schema/draft-2020-12";
 import { BASIC } from "@hyperjump/json-schema/experimental";
 
-const o = await validate("./src/schema.json", tree, BASIC);
+const o = await validate(
+  "./src/schema.json",
+  JSON.parse(JSON.stringify(tree)),
+  BASIC
+);
 console.log("Your tree is " + (o.valid ? "valid" : " NOT valid") + "!");
 if (!o.valid) {
   console.log("Errors:", o.errors);
@@ -44,18 +48,22 @@ if (!o.valid) {
             <br />
             Please check the console or get more information here:
           </h1>
-          <div class="mt-3">
-            {o.errors?.map((e) => {
-              let link = e.keyword.replace(
-                "keyword",
-                "understanding-json-schema/keywords"
-              );
-              return (
-                <a href={link} class="link link-primary link-hover">
-                  {link}
-                </a>
-              );
-            })}
+          <div class="mt-3 flex flex-col">
+            {o.errors
+              ?.map((e) => e.keyword)
+              .filter((e, i, a) => a.indexOf(e) == i)
+              .map((e) => {
+                console.log(e);
+                let link = e.replace(
+                  "keyword",
+                  "understanding-json-schema/keywords"
+                );
+                return (
+                  <a href={link} class="link link-primary link-hover">
+                    {link}
+                  </a>
+                );
+              })}
           </div>
         </div>
       )
