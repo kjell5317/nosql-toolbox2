@@ -2,10 +2,10 @@
 import tree from "../tree.json";
 import { validate } from "@hyperjump/json-schema/draft-2020-12";
 import { BASIC } from "@hyperjump/json-schema/experimental";
-
+import { type JsonObject } from "@hyperjump/json-pointer";
 const o = await validate(
   "./src/schema.json",
-  JSON.parse(JSON.stringify(tree)),
+  tree as unknown as JsonObject,
   BASIC
 );
 console.log("Your tree is " + (o.valid ? "valid" : " NOT valid") + "!");
@@ -53,7 +53,6 @@ if (!o.valid) {
               ?.map((e) => e.keyword)
               .filter((e, i, a) => a.indexOf(e) == i)
               .map((e) => {
-                console.log(e);
                 let link = e.replace(
                   "keyword",
                   "understanding-json-schema/keywords"

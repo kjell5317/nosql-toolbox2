@@ -62,19 +62,3 @@ export function AnswerButton({
     </button>
   );
 }
-
-export function LinkButton({ href }: { href: string }) {
-  return (
-    <>
-      <button className="btn btn-primary w-full">
-        <a
-          href={href}
-          className="w-full h-full flex items-center justify-center"
-          target="_blank"
-        >
-          Documentation
-        </a>
-      </button>
-    </>
-  );
-}

@@ -1,5 +1,5 @@
-import { Tree } from "../Tree";
-import { AnswerButton, BackButton, LinkButton, RestartButton } from "./Buttons";
+import { Tree, type End } from "../Tree";
+import { AnswerButton, BackButton, RestartButton } from "./Buttons";
 import Modal from "./Modal";
 import { useState } from "react";
 import TreeD3 from "./TreeD3";
@@ -44,36 +44,36 @@ export default function Question({ init }: { init: any }) {
         </div>
       </div>
       <h1
-        className={`font-medium mt-4 text-center mx-4 ${
+        className={`font-medium m-4 text-center ${
           node.end ? "text-primary text-3xl" : "text-2xl"
         }`}
       >
         {node.name}
       </h1>
-      {node.info && node.end && (
+      {node.end && (
         <>
           <p className="text-center mt-1 mx-4">{node.info}</p>
-          <div className="grid md:grid-cols-2 gap-x-4 gap-y-2 mt-4">
-            {node.end.map((db: any, i: number) => {
+          <div className="flex flex-col gap-2 justify-evenly">
+            {node.end.map((db: End, i: number) => {
               return (
                 <div key={i}>
-                  <h2 className="text-xl text-primary text-center">
+                  <a href={db.link}></a>
+                  <h2
+                    className={`text-xl text-primary text-center ${
+                      db.link && "link link-hover"
+                    }`}
+                  >
                     {db.name}
                   </h2>
                   <p className="text-center">{db.info}</p>
-                  {db.link && (
-                    <div className="w-5/6 mx-auto my-2">
-                      <LinkButton href={db.link} />
-                    </div>
-                  )}
                 </div>
               );
             })}
           </div>
         </>
       )}
-      <div className="flex flex-col gap-4 mt-5 items-center justify-center">
-        {node.children.map((child, i) => {
+      <div className="flex flex-col gap-4 items-center justify-center">
+        {node.children?.map((child, i) => {
           return (
             <div className="w-2/3" key={i}>
               <AnswerButton next={next} i={i} slot={child.answer} />
@@ -82,7 +82,7 @@ export default function Question({ init }: { init: any }) {
         })}
       </div>
       {node.end && (
-        <div className="p-5">
+        <div className="ml-4 mt-5 justify-center hidden xl:flex">
           <TreeD3 target={node} />
         </div>
       )}

@@ -1,10 +1,14 @@
+export interface End {
+    name: string, info: string, link?: string
+}
+
 export class Tree {
     static root: Tree;
     name?: string;
     info?: string;
     answer: string;
     children: Tree[];
-    end?: { name: string, info: string }[];
+    end?: End[];
 
     constructor(json: any, root: boolean = false) {
         this.name = json.name;

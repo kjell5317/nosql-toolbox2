@@ -6,12 +6,15 @@ export default function TreeD3({ target }: { target: Tree }) {
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
+    const height = 500;
+    const nodeRad = 16;
+
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
 
     // Convert Tree instance to d3 hierarchy
     const root = d3.hierarchy<Tree>(Tree.root);
-    const treeLayout = d3.tree<Tree>().size([300, 400]);
+    const treeLayout = d3.tree<Tree>().size([height, 350]);
     const treeData = treeLayout(root);
 
     let targetNode: d3.HierarchyPointNode<Tree> | null = null;
@@ -32,10 +35,11 @@ export default function TreeD3({ target }: { target: Tree }) {
     };
 
     const g = svg
-      .attr("width", "100%")
-      .attr("height", "300")
+      .attr("width", height + nodeRad)
+      .attr("height", height - nodeRad * 2)
       .append("g")
-      .attr("transform", `translate(16, 18)`);
+      .attr("viewBox", `0 0 450 280`)
+      .attr("transform", `translate(${nodeRad}, ${-nodeRad})`);
 
     // Links (edges)
     const link = g
@@ -65,7 +69,7 @@ export default function TreeD3({ target }: { target: Tree }) {
       .attr("transform", (d) => `translate(${d.y},${d.x})`);
     node
       .append("circle")
-      .attr("r", 16)
+      .attr("r", nodeRad)
       .attr("fill", (d) =>
         pathNodes.includes(d) ? "oklch(var(--p))" : "oklch(var(--nc))"
       );
@@ -74,8 +78,12 @@ export default function TreeD3({ target }: { target: Tree }) {
       .append("text")
       .attr("fill", "#FFF")
       .attr("dy", ".35em")
-      .attr("x", 20)
-      .text((d) => d.data.name || d.data.answer);
+      .attr("x", nodeRad + 6)
+      .text((d) =>
+        d.data.name == "Online Transaction Processing"
+          ? "OLTP"
+          : d.data.name || ""
+      );
   }, [target]);
 
   return <svg ref={svgRef}></svg>;
