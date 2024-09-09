@@ -1,0 +1,12 @@
+{
+  "name": "NoSQL Toolbox 2.0",
+  "icons": [
+    {
+      "src": "tree.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#7480FF",
+  "display": "fullscreen",
+  "background_color": "#FFFFFF"
+}
