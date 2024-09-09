@@ -1,5 +1,3 @@
-import Modal from "./Modal";
-
 export function BackButton({ back }: { back: () => void }) {
   return (
     <button onClick={back} className="btn btn-sm btn-outline">
