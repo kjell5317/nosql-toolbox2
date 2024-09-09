@@ -31,13 +31,13 @@ export class Tree {
         return this.children[n];
     }
 
-    static findParent(node: Tree, target: Tree): Tree | null {
+    findParent(node: Tree): Tree | null {
         if (node.children != null) {
             for (let child of node.children) {
-                if (child == target) {
+                if (child == this) {
                     return node;
                 } else {
-                    const parent = Tree.findParent(child, target);
+                    const parent = this.findParent(child);
                     if (parent) {
                         return parent;
                     }
@@ -51,7 +51,7 @@ export class Tree {
         if (this == Tree.root) {
             return null;
         }
-        return Tree.findParent(Tree.root, this);
+        return this.findParent(Tree.root);
     }
 
     maxDepth(): number {
@@ -66,6 +66,6 @@ export class Tree {
         if (this == Tree.root) {
             return 1;
         }
-        return 1 + (Tree.findParent(Tree.root, this)?.depth() || 0);
+        return 1 + (this.findParent(Tree.root)?.depth() || 0);
     }
 }
