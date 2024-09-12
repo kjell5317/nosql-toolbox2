@@ -44,7 +44,7 @@ export default function Question({ init }: { init: any }) {
         </div>
       </div>
       <h1
-        className={`font-medium m-4 text-center ${
+        className={`font-medium mt-4 text-center ${
           node.end ? "text-primary text-3xl" : "text-2xl"
         }`}
       >
@@ -52,7 +52,8 @@ export default function Question({ init }: { init: any }) {
       </h1>
       {node.end && (
         <>
-          <p className="text-center mt-1 mx-4">{node.info}</p>
+          <p className="text-center mx-4">{node.info}</p>
+          <div className="divider divider-primary"></div>
           <div className="flex flex-col gap-2 justify-evenly">
             {node.end.map((db: End, i: number) => {
               return (
@@ -72,7 +73,7 @@ export default function Question({ init }: { init: any }) {
           </div>
         </>
       )}
-      <div className="flex flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col gap-4 items-center justify-center mt-4">
         {node.children?.map((child, i) => {
           return (
             <div className="w-2/3" key={i}>
