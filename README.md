@@ -50,7 +50,9 @@ Each node of the tree can have the following properties:
 * `name` (string): The name/question. Is only required for the root node.
 * `answer` (string): The answer shown in the button of it's parent. Because it's schown in the parent, the root can't have this property.
 * `info` (string): This shown when the "More Info"-button is pressed or as a description in the leafs. HTML elements are rendered.
-* `children` (array of nodes): This array represents the next questions. The site is only tested with binary trees, so more than two childs could lead to unexpected behavior although it should technically be possible.
+* oneOf:
+   * `children` (array of nodes): This array represents the next questions. The site is only tested with binary trees, so more than two childs could lead to unexpected behavior although it should technically be possible.
+   * `end` (array of objects): These objects contain the name of a result, more info and an optional link to it's documentation.
 
 You could also take a look at the `src/schema.json` and [json-schema](https://json-schema.org/docs).
 
