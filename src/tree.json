@@ -2,6 +2,7 @@
   "title": "NoSQL Databases",
   "description": "Welcome to our decision-making platform, designed to help you find the best NoSQL database for your unique needs. In today's data-driven world, selecting the right database can significantly impact your application's performance, scalability, and overall success. Our site simplifies this crucial decision by guiding you through a tailored decision tree, taking your needs into acoount. Whether you're building a small app or an enterprise-level system, we're here to ensure you make an informed choice quickly and efficiently.",
   "name": "Which type of access is more important in your case?",
+  "info": "Is your primary need from a database to quickly find specific pieces of data (<em>\"Fast Lookups\"</em>) or to perform detailed and intricate searches across your data (<em>\"Complex Queries\"</em>)?<br/><br/>If <em>\"Fast Lookups\"</em> are more important, you're focused on retrieving specific data quickly, like fetching a user profile by ID. This is critical for applications requiring rapid responses, such as online shopping carts.<br/><br/>If <em>\"Complex Queries\"</em> are more important, you need to perform detailed searches and analyze large datasets. This is essential for tasks such as generating reports or identifying patterns, which are key in areas like business analytics or data mining.",
   "children": [
     {
       "answer": "Fast Lookups",
@@ -28,6 +29,7 @@
         {
           "answer": "Really big",
           "name": "Is it more important to have all data always available even if this can cause small inaccuracies or to have all data always correct and consistent even if it causes delays?",
+          "info": "If you choose <em>\"Always available\"</em>, it means you prioritize speed and accessibility, even if in rare cases the data might not be perfectly up-to-date. This is beneficial in scenarios where immediate access is critical, such as displaying the most recent updates in social media feeds.<br/><br/>On the other hand, if you choose <em>\"Always consistent\"</em>, you prioritize accuracy and correctness, ensuring that all data is precise and reliable, even if it means waiting slightly longer. This is vital in situations where accuracy is crucial, such as financial transactions or inventory management.",
           "children": [
             {
               "answer": "Always available",
@@ -80,10 +82,12 @@
     {
       "answer": "Complex Queries",
       "name": "How big is your database going to be?",
+      "info": "If your database is the size of your <em>\"Size of HDD\"</em> (Hard Disk Drive), it means your data is large enough to occupy a significant portion of your computer's storage but is still manageable on a single machine. This is typically suitable for medium-sized applications, such as a small company's customer database.<br/><br/>If your database is <em>\"Really big\"</em>, it means your data may exceed the capacity of a single hard drive. In this case, advanced storage solutions, such as distributed databases that spread data across multiple servers, are required. These solutions are commonly used by large organizations managing massive datasets.",
       "children": [
         {
           "answer": "Size of HDD",
           "name": "Is it more important to have all data always available even if this can cause small inaccuracies or to have all data always correct and consistent even if it causes delays?",
+          "info": "If you choose <em>\"Always available\"</em>, it means you prioritize speed and accessibility, even if the data might not be perfectly up-to-date in rare cases. This approach is useful in scenarios where immediate access is critical, such as displaying the latest updates in social media feeds.<br/><br/>On the other hand, if you choose <em>\"Always consistent\"</em>, you prioritize accuracy and correctness, ensuring that every piece of data is precise and reliable, even if it means waiting a bit longer. This is essential in situations where accuracy is crucial, such as in financial transactions or inventory management.",
           "children": [
             {
               "answer": "Always consistent",
@@ -129,6 +133,7 @@
         {
           "answer": "Really big",
           "name": "How should your queries be optimized?",
+          "info": "If you need <em>\"Low latency ad-hoc queries\"</em>, it means you want to quickly retrieve specific data points with minimal delay. This is useful for real-time applications, such as gaming leaderboards or chat applications.<br/><br/>If you need <em>\"Throughput-optimised Big Data analytics\"</em>, you're focused on processing large amounts of data efficiently, even if it takes a bit longer to get results. This is crucial for applications like big data processing, data warehousing, and business intelligence.",
           "children": [
             {
               "answer": "Low latency ad-hoc queries",
