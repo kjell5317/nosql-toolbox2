@@ -18,6 +18,9 @@ if (!o.valid) {
     <meta name="generator" content={Astro.generator} />
     <title>{(tree.title || "Error") + " | NoSQL Toolbox 2.0"}</title>
     <meta name="description" content={tree.description} />
+    <link rel="icon" href="/tree.svg" type="" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#7480FF" />
   </head>
   <body class="absolute w-full">
     <nav class="flex justify-between mx-3 my-5 md:m-7 items-center">
@@ -44,7 +47,7 @@ if (!o.valid) {
             <br />
             Please check the console or get more information here:
           </h1>
-          <div class="mt-3">
+          <div class="mt-3 flex flex-col">
             {o.errors?.map((e) => {
               let link = e.keyword.replace(
                 "keyword",
