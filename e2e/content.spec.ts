@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
+// @ts-ignore
 const tree = require('../src/tree.json');
 
 test('Index Page', async ({ page }) => {
