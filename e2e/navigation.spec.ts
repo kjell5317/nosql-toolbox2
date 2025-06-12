@@ -8,7 +8,7 @@ test('Has title and description', async ({ page }) => {
   await page.goto('http://localhost:4321');
 
   // Title
-  await expect(page).toHaveTitle(new RegExp(`${tree.title}.+ \| NoSQL Toolbox 2.0`));
+  await expect(page).toHaveTitle(new RegExp(`${tree.title}.+ | NoSQL Toolbox 2.0`));
   // Description
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', tree.description);
 });
