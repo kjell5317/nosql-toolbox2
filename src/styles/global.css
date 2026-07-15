@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* daisyui v5 is configured as a Tailwind v4 plugin (replaces the old JS
+   tailwind.config.mjs). Only the dark theme is enabled and set as default,
+   matching the previous `daisyui: { themes: ["dark"] }` config. */
+@plugin "daisyui" {
+  themes: dark --default;
+}
